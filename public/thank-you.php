@@ -31,4 +31,5 @@ render('header', ['site' => $site]);
         </div>
     </div>
 </main>
+<?php render('footer', ['site' => $site]); ?>
 <?php render('foot');

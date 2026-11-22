@@ -21,4 +21,5 @@ render('header', ['site' => $site]);
     <?php render('pricing'); ?>
     <?php render('contact', $contact); ?>
 </main>
+<?php render('footer', ['site' => $site]); ?>
 <?php render('foot');
