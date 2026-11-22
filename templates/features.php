@@ -1,5 +1,6 @@
 <?php
 // Each feature: title, description and an inline SVG icon path (24×24, stroke icons).
+// The icon markup is trusted, hard-coded SVG and is printed without e(); never put user input in it.
 $features = [
     [
         'title' => 'Inventory',
