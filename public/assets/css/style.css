@@ -266,7 +266,7 @@ html:not(.js) .site-header__inner { flex-wrap: wrap; }
         var(--white);
     overflow: hidden;
 }
-.hero__inner { display: grid; gap: var(--s-7); align-items: center; }
+.hero__inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-7); align-items: center; }
 .hero__inner > .mockup { margin-bottom: var(--s-4); }
 .hero__title { font-size: var(--h1); font-weight: 800; letter-spacing: -0.035em; }
 .hero__lead { margin-top: var(--s-4); max-width: 34rem; font-size: var(--text-lg); color: var(--ink-500); }
@@ -286,7 +286,7 @@ html:not(.js) .site-header__inner { flex-wrap: wrap; }
 }
 @media (min-width: 1024px) {
     .hero { padding: var(--s-9) 0; }
-    .hero__inner { grid-template-columns: 1fr 1.05fr; gap: var(--s-8); }
+    .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--s-8); }
 }
 
 /* ==========================================================================
