@@ -30,10 +30,11 @@ jobs:
 
       - name: PHP syntax check (php -l on every .php file)
         run: |
-          files=$(find . -type f -name '*.php' -not -path './vendor/*' | sort)
-          echo "Checking $(echo "$files" | wc -l) PHP files"
+          count=0
           status=0
-          for f in $files; do
+          while IFS= read -r -d '' f; do
+            count=$((count + 1))
             php -l "$f" || status=1
-          done
+          done < <(find . -type f -name '*.php' -not -path './vendor/*' -print0 | sort -z)
+          echo "Checked $count PHP files"
           exit $status
