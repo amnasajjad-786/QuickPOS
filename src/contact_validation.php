@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+const CONTACT_NAME_MAX = 100;
+const CONTACT_MESSAGE_MAX = 2000;
+
 /**
  * Contact-form validation.
  *
@@ -23,6 +26,8 @@ function validate_contact(array $input): array
 
     if ($values['name'] === '') {
         $errors['name'] = 'Please enter your name.';
+    } elseif (iconv_strlen($values['name'], 'UTF-8') > CONTACT_NAME_MAX) {
+        $errors['name'] = 'Please keep your name under ' . CONTACT_NAME_MAX . ' characters.';
     }
 
     if ($values['email'] === '') {
@@ -33,6 +38,8 @@ function validate_contact(array $input): array
 
     if ($values['message'] === '') {
         $errors['message'] = 'Please write a message so we know how to help.';
+    } elseif (iconv_strlen($values['message'], 'UTF-8') > CONTACT_MESSAGE_MAX) {
+        $errors['message'] = 'Please keep your message under ' . CONTACT_MESSAGE_MAX . ' characters.';
     }
 
     return [
