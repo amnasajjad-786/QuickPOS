@@ -38,3 +38,6 @@ jobs:
           done < <(find . -type f -name '*.php' -not -path './vendor/*' -print0 | sort -z)
           echo "Checked $count PHP files"
           exit $status
+
+      - name: Run automated contact-form tests
+        run: php tests/run.php
