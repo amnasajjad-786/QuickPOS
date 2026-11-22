@@ -1,0 +1,12 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependencies (none required, kept for future use)
+/vendor/
+/node_modules/
+
+# Local logs
+*.log
