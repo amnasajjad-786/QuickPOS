@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 require __DIR__ . '/../src/helpers.php';
 
+session_start();
+
 $site = site();
+
+// Errors and typed values from a failed contact-form submission (shown once).
+$contact = $_SESSION['contact'] ?? ['errors' => [], 'values' => []];
+unset($_SESSION['contact']);
 
 render('head', ['title' => $site['name'] . ' – ' . $site['tagline']]);
 render('header', ['site' => $site]);
@@ -15,8 +21,6 @@ render('header', ['site' => $site]);
     <section class="section" id="pricing" aria-label="Pricing">
         <div class="container"><h2>Pricing</h2></div>
     </section>
-    <section class="section" id="contact" aria-label="Contact">
-        <div class="container"><h2>Contact</h2></div>
-    </section>
+    <?php render('contact', $contact); ?>
 </main>
 <?php render('foot');
