@@ -585,3 +585,16 @@ textarea.field__input { resize: vertical; min-height: 132px; }
     border-top: 1px solid #344054;
     font-size: var(--text-sm);
 }
+
+/* ==========================================================================
+   Responsive QA (POS-20)
+   ========================================================================== */
+/* Tablet: Pro across the top, Basic and Enterprise side by side (shorter page) */
+@media (min-width: 640px) and (max-width: 959px) {
+    .pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; }
+    .plan--popular { grid-column: 1 / -1; }
+}
+/* Bigger tap area for footer links on touch screens */
+@media (max-width: 767px) {
+    .site-footer__group a { display: inline-block; padding: var(--s-1) 0; }
+}
