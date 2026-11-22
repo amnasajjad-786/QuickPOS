@@ -561,7 +561,7 @@ textarea.field__input { resize: vertical; min-height: 132px; }
     .site-footer__top { grid-template-columns: 2fr repeat(3, 1fr); }
     .site-footer__brand { grid-column: auto; }
 }
-.brand--light { color: var(--brand-600); }
+.site-footer .brand--light { color: var(--brand-600); }
 .brand--light .brand__name { color: var(--white); }
 .site-footer__group h3 { margin-bottom: var(--s-3); font-size: var(--text-sm); font-weight: 600; color: var(--white); letter-spacing: 0.02em; }
 .site-footer__group ul { display: grid; gap: var(--s-2); }
