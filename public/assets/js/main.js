@@ -30,6 +30,12 @@ document.documentElement.classList.add('js');
         if (event.key === 'Escape') setOpen(false);
     });
 
+    // Reset the menu when the window grows to the desktop layout.
+    const desktop = window.matchMedia('(min-width: 768px)');
+    desktop.addEventListener('change', function (mq) {
+        if (mq.matches) setOpen(false);
+    });
+
     // Add a subtle shadow once the page is scrolled.
     function onScroll() {
         header.classList.toggle('is-scrolled', window.scrollY > 4);
