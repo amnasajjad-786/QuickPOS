@@ -64,3 +64,7 @@ find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
 - Branch names contain the issue key: `feature/POS-17-form-validation`, `bugfix/POS-35-mobile-overflow`.
 - Commit messages start with the key: `POS-17: Add server-side email validation`.
 - Work is merged into `main` only through a reviewed pull request with passing CI.
+
+### Jira ↔ GitHub integration
+
+The repository is connected to the Jira project through the free **GitHub for Atlassian** app. Any branch, commit or pull request that contains a `POS-` key appears automatically in that issue's **Development** panel in Jira (for example, POS-17 lists its branch, commits and PR #6).
