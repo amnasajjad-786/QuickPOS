@@ -12,7 +12,10 @@ function e(?string $value): string
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-/** Render a template from the templates/ folder with the given variables. */
+/**
+ * Render a template from the templates/ folder with the given variables.
+ * EXTR_SKIP means a passed variable can never overwrite one that already exists.
+ */
 function render(string $template, array $vars = []): void
 {
     extract($vars, EXTR_SKIP);
