@@ -10,6 +10,7 @@ render('head', ['title' => $site['name'] . ' – ' . $site['tagline']]);
 render('header', ['site' => $site]);
 ?>
 <main id="top">
+    <?php render('hero'); ?>
     <section class="section" id="features" aria-label="Features">
         <div class="container"><h2>Features</h2></div>
     </section>
