@@ -11,9 +11,7 @@ render('header', ['site' => $site]);
 ?>
 <main id="top">
     <?php render('hero'); ?>
-    <section class="section" id="features" aria-label="Features">
-        <div class="container"><h2>Features</h2></div>
-    </section>
+    <?php render('features'); ?>
     <section class="section" id="pricing" aria-label="Pricing">
         <div class="container"><h2>Pricing</h2></div>
     </section>
