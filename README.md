@@ -34,12 +34,23 @@ php -S localhost:8000 -t public
 
 Then open http://localhost:8000 in a browser.
 
+## Automated tests
+
+The contact-form validation (`src/contact_validation.php`) is tested directly, without a browser, by plain PHP tests in `tests/`:
+
+```bash
+php tests/run.php
+```
+
+The runner prints `PASS`/`FAIL` for each test and exits with code `1` if any assertion fails. Covered cases include empty Name, invalid Email, empty Message, valid input accepted, trimming, and the 100/2000-character length limits.
+
 ## Continuous Integration
 
 GitHub Actions runs `.github/workflows/ci.yml` on every push to `main`, `feature/**` and `bugfix/**` branches and on every pull request to `main`. It uses a free `ubuntu-latest` runner:
 
 1. checks out the code and sets up PHP 8.3,
-2. runs `php -l` on **every** `.php` file; any syntax error fails the run.
+2. runs `php -l` on **every** `.php` file; any syntax error fails the run,
+3. runs `php tests/run.php`; any failing test fails the run.
 
 Run the same syntax check locally:
 
