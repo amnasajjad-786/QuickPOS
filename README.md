@@ -34,6 +34,19 @@ php -S localhost:8000 -t public
 
 Then open http://localhost:8000 in a browser.
 
+## Continuous Integration
+
+GitHub Actions runs `.github/workflows/ci.yml` on every push to `main`, `feature/**` and `bugfix/**` branches and on every pull request to `main`. It uses a free `ubuntu-latest` runner:
+
+1. checks out the code and sets up PHP 8.3,
+2. runs `php -l` on **every** `.php` file; any syntax error fails the run.
+
+Run the same syntax check locally:
+
+```bash
+find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \;
+```
+
 ## Workflow
 
 - Every change starts from a Jira issue, e.g. `POS-17`.

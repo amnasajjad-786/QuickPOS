@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+      - 'bugfix/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  checks:
+    name: PHP syntax and tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+
+      - name: Show PHP version
+        run: php -v
+
+      - name: PHP syntax check (php -l on every .php file)
+        run: |
+          count=0
+          status=0
+          while IFS= read -r -d '' f; do
+            count=$((count + 1))
+            php -l "$f" || status=1
+          done < <(find . -type f -name '*.php' -not -path './vendor/*' -print0 | sort -z)
+          echo "Checked $count PHP files"
+          exit $status
