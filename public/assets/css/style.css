@@ -499,3 +499,52 @@ textarea.field__input { resize: vertical; min-height: 132px; }
     background: var(--success-50);
     color: var(--success-600);
 }
+
+/* ==========================================================================
+   Pricing (POS-14, POS-15)
+   ========================================================================== */
+.pricing-grid { display: grid; gap: var(--s-5); grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+@media (min-width: 960px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); max-width: none; align-items: stretch; } }
+
+.plan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-4);
+    padding: var(--s-6) var(--s-5);
+    background: var(--white);
+    border: 1px solid var(--ink-200);
+    border-radius: var(--radius-lg);
+}
+.plan--popular { border: 2px solid var(--brand-600); box-shadow: var(--shadow-lg); }
+@media (max-width: 959px) { .plan--popular { order: -1; } }
+.plan__badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--brand-600);
+    color: var(--white);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    white-space: nowrap;
+}
+.plan__name { font-size: var(--h3); font-weight: 700; }
+.plan__summary { color: var(--ink-500); }
+.plan__price { display: flex; align-items: baseline; gap: var(--s-1); }
+.plan__amount { font-size: 2.25rem; font-weight: 800; color: var(--ink-900); letter-spacing: -0.03em; }
+.plan__period { color: var(--ink-500); }
+.plan__features { display: grid; gap: var(--s-3); padding-top: var(--s-4); border-top: 1px solid var(--ink-200); }
+.plan__features li { display: flex; gap: var(--s-2); align-items: flex-start; }
+.plan__features li::before {
+    content: '';
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background: var(--brand-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.2l2.6 2.6 5.4-5.6' fill='none' stroke='%23D92D20' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
+}
+@media (min-width: 960px) { .plan__summary { min-height: 3.2em; } }
