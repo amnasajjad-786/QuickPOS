@@ -7,6 +7,7 @@ require __DIR__ . '/../src/helpers.php';
 $site = site();
 
 render('head', ['title' => $site['name'] . ' – ' . $site['tagline']]);
+render('header', ['site' => $site]);
 ?>
 <main id="top">
     <section class="section" id="features" aria-label="Features">
