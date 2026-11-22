@@ -252,3 +252,146 @@ html:not(.js) .site-header__inner { flex-wrap: wrap; }
     .site-nav__link { padding: var(--s-2) var(--s-3); }
     .site-nav__cta { margin-top: 0; }
 }
+
+/* ==========================================================================
+   Hero (POS-10)
+   ========================================================================== */
+.text-brand { color: var(--brand-600); }
+
+.hero {
+    position: relative;
+    padding: var(--s-7) 0 var(--s-8);
+    background:
+        radial-gradient(60% 50% at 85% 10%, var(--brand-50) 0%, rgba(254, 243, 242, 0) 70%),
+        var(--white);
+    overflow: hidden;
+}
+.hero__inner { display: grid; gap: var(--s-7); align-items: center; }
+.hero__inner > .mockup { margin-bottom: var(--s-4); }
+.hero__title { font-size: var(--h1); font-weight: 800; letter-spacing: -0.035em; }
+.hero__lead { margin-top: var(--s-4); max-width: 34rem; font-size: var(--text-lg); color: var(--ink-500); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-6); }
+.hero__points { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-5); margin-top: var(--s-5); font-size: var(--text-sm); color: var(--ink-500); }
+.hero__points li { display: inline-flex; align-items: center; gap: var(--s-2); }
+.hero__points li::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--success-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23079455' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+
+@media (max-width: 479px) {
+    .hero__actions .btn { flex: 1 1 100%; }
+}
+@media (min-width: 1024px) {
+    .hero { padding: var(--s-9) 0; }
+    .hero__inner { grid-template-columns: 1fr 1.05fr; gap: var(--s-8); }
+}
+
+/* ==========================================================================
+   POS screen mockup (POS-11) – pure HTML/CSS so it stays sharp at any size
+   ========================================================================== */
+.mockup {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--ink-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    font-size: 12px;
+    line-height: 1.4;
+}
+.mockup__bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--ink-200);
+    color: var(--ink-500);
+}
+.mockup__bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--ink-200); }
+.mockup__bar span:first-child { background: #f97066; }
+.mockup__bar strong { margin-left: 8px; font-weight: 600; }
+.mockup__body { display: grid; grid-template-columns: 1fr; }
+.mockup__products { padding: 14px; }
+.mockup__search {
+    padding: 8px 10px;
+    border: 1px solid var(--ink-200);
+    border-radius: var(--radius-sm);
+    color: var(--ink-500);
+    background: var(--ink-50);
+}
+.mockup__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+.mockup__tile {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px;
+    border: 1px solid var(--ink-200);
+    border-radius: var(--radius-sm);
+}
+.mockup__thumb { height: 34px; border-radius: 6px; margin-bottom: 4px; }
+.mockup__name { font-weight: 600; color: var(--ink-900); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mockup__price { color: var(--ink-500); }
+.mockup__cart {
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    border-top: 1px solid var(--ink-200);
+    background: var(--ink-50);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.mockup__cart-head { display: flex; justify-content: space-between; font-weight: 700; color: var(--ink-900); }
+.mockup__cart-head span { font-weight: 500; color: var(--ink-500); }
+.mockup__lines { margin: 10px 0; }
+.mockup__lines li, .mockup__totals div { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; }
+.mockup__totals { padding-top: 8px; border-top: 1px dashed var(--ink-300); color: var(--ink-500); }
+.mockup__total { font-size: 14px; font-weight: 700; color: var(--ink-900) !important; }
+.mockup__total span { color: var(--ink-900); }
+.mockup__charge {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    background: var(--brand-600);
+    color: var(--white);
+    font-weight: 700;
+    text-align: center;
+}
+.mockup__badge {
+    position: absolute;
+    left: 24px;
+    bottom: -18px;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--white);
+    border: 1px solid var(--ink-200);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    font-size: 12px;
+    color: var(--ink-700);
+}
+.mockup__badge strong { color: var(--success-600); }
+.mockup__badge-icon {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--success-50);
+    color: var(--success-600);
+    font-weight: 700;
+}
+
+@media (min-width: 560px) {
+    .mockup__body { grid-template-columns: 1.5fr 1fr; }
+    .mockup__cart { border-top: 0; border-left: 1px solid var(--ink-200); border-radius: 0 0 var(--radius-lg) 0; }
+    .mockup__badge { display: inline-flex; }
+}
+@media (min-width: 1024px) {
+    .mockup__badge { left: -24px; }
+}
